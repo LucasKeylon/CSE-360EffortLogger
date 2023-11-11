@@ -47,5 +47,13 @@ public class EffortLoggerConsoleController implements Initializable{
 		scene = new Scene(root); //set scene as definition UI
 		stage.setScene(scene); //set new window to definition UI
 		stage.show(); //show definition UI
-	}	
+	}
+	
+	public void switchToEffortLogEditorConsole(ActionEvent event) throws IOException{
+		root = FXMLLoader.load(getClass().getResource("EffortLogEditorConsole.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);;
+		stage.show();
+	}
 }
