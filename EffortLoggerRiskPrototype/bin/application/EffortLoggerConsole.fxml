@@ -34,7 +34,7 @@
       <ChoiceBox layoutX="29.0" layoutY="288.0" prefHeight="25.0" prefWidth="231.0" />
       <ChoiceBox layoutX="287.0" layoutY="288.0" prefHeight="25.0" prefWidth="231.0" />
       <ChoiceBox fx:id="roleBox" layoutX="29.0" layoutY="348.0" prefHeight="25.0" prefWidth="231.0" />
-      <Button layoutX="30.0" layoutY="485.0" mnemonicParsing="false" text="Effort Log Editor" />
+      <Button layoutX="30.0" layoutY="485.0" mnemonicParsing="false" onAction="#switchToEffortLogEditorConsole" text="Effort Log Editor" />
       <Button layoutX="154.0" layoutY="485.0" mnemonicParsing="false" onAction="#switchToDefectConsole" text="Defect Log Console" />
       <Button layoutX="292.0" layoutY="485.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Definitions" />
       <Button layoutX="389.0" layoutY="485.0" mnemonicParsing="false" text="Effort and Defect Logs" />
