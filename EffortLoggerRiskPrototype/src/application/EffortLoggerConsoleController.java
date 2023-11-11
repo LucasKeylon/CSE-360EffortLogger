@@ -40,4 +40,12 @@ public class EffortLoggerConsoleController implements Initializable{
 		stage.setScene(scene); //set new window to Defect Console UI
 		stage.show(); //show Defect Console UI
 	}	
+	
+	public void switchToDefinitions(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("Definitions.fxml")); //loads definition UI
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow(); //cast source to Node and cast Node to stage
+		scene = new Scene(root); //set scene as definition UI
+		stage.setScene(scene); //set new window to definition UI
+		stage.show(); //show definition UI
+	}	
 }
