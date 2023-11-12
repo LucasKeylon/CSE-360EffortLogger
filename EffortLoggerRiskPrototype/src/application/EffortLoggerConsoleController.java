@@ -25,6 +25,7 @@ public class EffortLoggerConsoleController implements Initializable{
 		roleBox.getItems().addAll(roles); //adds all roles to selection of choices
 	}
 	
+	@SuppressWarnings("unused")
 	public void getRole(ActionEvent event) {
 		String role = roleBox.getValue(); //stores role
 	}
@@ -59,6 +60,14 @@ public class EffortLoggerConsoleController implements Initializable{
 
 	public void switchToLogs(ActionEvent event) throws IOException{
 		root = FXMLLoader.load(getClass().getResource("logs.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);;
+		stage.show();
+	}
+	
+	public void switchToHistoricalData(ActionEvent event) throws IOException{
+		root = FXMLLoader.load(getClass().getResource("HistoricalData.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);;
