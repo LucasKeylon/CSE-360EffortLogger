@@ -17,6 +17,11 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.FileReader;
+
 
 import javafx.scene.control.TextArea;
 
@@ -34,31 +39,37 @@ private Parent root;
 
 public void printText(ActionEvent event) throws IOException {
 	textarea.clear();
-	String text;
-	File file = new File("data.txt");
-	Scanner scanner = null;
-	try {
-		scanner = new Scanner(file);
-	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	while (scanner.hasNext()) {
-	      text = scanner.next();
-	      textarea.appendText(text);
-	      textarea.appendText(" ");
-	    }
-	    scanner.close();
+    String text;
+    File file = new File("data.txt");
+    Scanner scanner = null;
+    
+    try {
+        scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {  // Use hasNextLine to read entire lines
+            text = scanner.nextLine();
+            textarea.appendText(text);
+            textarea.appendText(System.lineSeparator());  // Add newline to textarea
+        }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } finally {
+        if (scanner != null) {
+            scanner.close();
+        }
+    }
 	
 }
 
 public void saveText(ActionEvent event) throws IOException {
-	 String newtext;
-	 PrintWriter writer = new PrintWriter("data.txt", "UTF-8");
-	 newtext = textarea.getText();
-	 writer.println(newtext);
-	 writer.close();
-}
+	String newtext = textarea.getText();
+
+    // Replace newline characters with the platform-specific line separator
+    newtext = newtext.replace("\r\n", System.lineSeparator()).replace("\n", System.lineSeparator());
+
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("data.txt"))) {
+        writer.write(newtext);
+    }
+   }
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
