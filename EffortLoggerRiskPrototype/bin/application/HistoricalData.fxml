@@ -31,6 +31,11 @@
             </HBox>
          </children>
       </VBox>
+      <Button layoutX="25.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToEffortLoggerConsole" prefHeight="25.0" prefWidth="197.0" text="Return To EffortLogger Console">
+         <effect>
+            <ColorAdjust brightness="0.02" contrast="-0.05" hue="0.04" saturation="0.02" />
+         </effect>
+      </Button>
 
       
       
