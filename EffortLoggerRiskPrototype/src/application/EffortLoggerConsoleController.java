@@ -73,13 +73,6 @@ public class EffortLoggerConsoleController implements Initializable{
 		stage.setScene(scene);;
 		stage.show();
 	}
-	public void switchToDataLogs(ActionEvent event) throws IOException{
-		root = FXMLLoader.load(getClass().getResource("dataLogs.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);;
-		stage.show();
-	}
 	public void switchToProjectData(ActionEvent event) throws IOException{
 		root = FXMLLoader.load(getClass().getResource("ProjectDescription.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
