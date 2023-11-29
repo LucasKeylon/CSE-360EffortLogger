@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -16,8 +17,8 @@
             <Font size="35.0" />
          </font>
       </Text>
-      <Button layoutX="150.0" layoutY="155.0" mnemonicParsing="false" onAction="#printText" text="Print the saved data" />
-      <Button layoutX="322.0" layoutY="155.0" mnemonicParsing="false" onAction="#saveText" text="Save the current data" />
+      <Button layoutX="118.0" layoutY="180.0" mnemonicParsing="false" onAction="#printText" text="Print the saved data" />
+      <Button layoutX="300.0" layoutY="180.0" mnemonicParsing="false" onAction="#saveText" text="Save the Relevant Info" />
       <VBox layoutX="117.0" layoutY="221.0" prefHeight="179.0" prefWidth="374.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
@@ -36,6 +37,9 @@
             <ColorAdjust brightness="0.02" contrast="-0.05" hue="0.04" saturation="0.02" />
          </effect>
       </Button>
+      <TextField fx:id="projName" layoutX="118.0" layoutY="148.0" />
+      <Text layoutX="118.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Project Name:" />
+      <Button fx:id="saveName" layoutX="300.0" layoutY="148.0" mnemonicParsing="false" onAction="#saveName" text="Save Project Name" />
 
       
       
