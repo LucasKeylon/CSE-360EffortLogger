@@ -22,12 +22,16 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.FileReader;
 
-
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.TextField; // Added import for TextField
 import javafx.scene.control.TextArea;
 
 
 public class HistoricalDataController implements Initializable{
 
+@FXML
+TextField projName;
 @FXML
 TextArea textarea;
 
@@ -35,7 +39,42 @@ TextArea textarea;
 private Stage stage;
 private Scene scene;
 private Parent root;
+private String currentFileName;
 
+public void saveName(ActionEvent event) throws IOException {
+	String name = projName.getText();
+	if(!name.isEmpty()) {
+		if (!isFileExists(name)) {
+            currentFileName = saveNameToFile(name);
+        } else {
+            System.out.println("Cannot save. File with the same name already exists.");
+        }
+	} else {
+		System.out.println("Please enter name before saving.");
+	}
+}
+
+private boolean isFileExists(String name) {
+    File file = new File(name + ".txt");
+    return file.exists();
+}
+
+private String saveNameToFile(String name) {
+    // Define the file name based on the entered name
+    String fileName = name + ".txt";
+
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        // Write the name to the file
+        writer.write(name);
+        System.out.println("Name saved to file: " + fileName);
+        return fileName;
+        // You can show a success message or handle it as needed.
+    } catch (IOException e) {
+        e.printStackTrace();
+        // Handle the exception, show an error message, or log it.
+        return null;
+    }
+}
 
 public void printText(ActionEvent event) throws IOException {
 	textarea.clear();
@@ -61,18 +100,38 @@ public void printText(ActionEvent event) throws IOException {
 }
 
 public void saveText(ActionEvent event) throws IOException {
-	String newtext = textarea.getText();
+    if (textarea != null) {
+        String newtext = textarea.getText();
 
-    // Replace newline characters with the platform-specific line separator
-    newtext = newtext.replace("\r\n", System.lineSeparator()).replace("\n", System.lineSeparator());
+        // Replace newline characters with the platform-specific line separator
+        newtext = newtext.replace("\r\n", System.lineSeparator()).replace("\n", System.lineSeparator());
 
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("data.txt"))) {
-        writer.write(newtext);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(currentFileName, true))) {
+            writer.write(newtext);
+            writer.newLine();
+            System.out.println("Text saved to file: " + currentFileName);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    } else {
+        System.out.println("Textarea is null. Cannot save text.");
     }
-   }
+}
+
+private void updateCurrentFileName(String newName) {
+    currentFileName = newName + ".txt";
+}
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
+	// Add a listener to projName to update currentFileName when text changes
+    projName.textProperty().addListener(new ChangeListener<String>() {
+        @Override
+        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            updateCurrentFileName(newValue);
+        }
+    });
 }
 
 
