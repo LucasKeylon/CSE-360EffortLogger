@@ -46,7 +46,8 @@ public class ProjectDescription implements Initializable{
         String name = textfield1.getText().trim(); // Trim leading and trailing spaces
 
         //C:\\Users\\hero1\\TEST-Workspace\\test2\\
-        String folderPath = "C:\\Users\\hero1\\TEST-Workspace\\CSE 360 Assignment 5\\test2\\CSE-360EffortLogger-main"; // CHANGE BASED ON SPECIFIC USERS FOLDER LOCATION
+        String folderPath = "C:\\Users\\lucas\\eclipse-workspace\\CSE-360EffortLogger-32ea789700b58da24003edc77a95be93bb3b5a87\\CSE-360EffortLogger-32ea789700b58da24003edc77a95be93bb3b5a87\\EffortLoggerRiskPrototype";
+        //String folderPath = "C:\\Users\\hero1\\TEST-Workspace\\CSE 360 Assignment 5\\test2\\CSE-360EffortLogger-main"; // CHANGE BASED ON SPECIFIC USERS FOLDER LOCATION
         //WITHOUT CHANGING THE PATH, THE SEARCH FUNCTION IN THIS GUI WILL NOT WORK
         //Navigate to the part of the zip file that you EXTRACTED and find the folder that houses some of the examples projects, i.e. project 1, etc
         // THEN copy your current path/url

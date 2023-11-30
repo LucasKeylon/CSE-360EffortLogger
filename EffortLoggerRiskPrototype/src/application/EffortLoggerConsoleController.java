@@ -75,6 +75,13 @@ public class EffortLoggerConsoleController implements Initializable{
 		stage.setScene(scene);;
 		stage.show();
 	}
+	public void switchToProjectData(ActionEvent event) throws IOException{
+		root = FXMLLoader.load(getClass().getResource("ProjectDescription.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);;
+		stage.show();
+	}
 	public void switchToDetailedDefectData(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("DetailedDefectData.fxml")); //loads EffortLogger Console UI
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow(); //cast source to Node and cast Node to stage
@@ -82,8 +89,7 @@ public class EffortLoggerConsoleController implements Initializable{
 		stage.setScene(scene); //set new window to Defect Console UI
 		stage.show(); //show Defect Console UI
 	}
-	
-	StopWatch stopWatch = new StopWatch(); //create new stopwatch object
+StopWatch stopWatch = new StopWatch(); //create new stopwatch object
 	
 	@FXML
 	private Label clockLabel; //label that shows status of clock
