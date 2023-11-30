@@ -48,7 +48,7 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Logs">
   <children>
-    <MenuBar prefWidth="779.0" VBox.vgrow="NEVER">
+    <MenuBar prefHeight="25.0" prefWidth="682.0" VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
@@ -87,7 +87,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="439.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="464.0" prefWidth="696.0" VBox.vgrow="ALWAYS">
       <children>
         <Label alignment="CENTER" layoutX="128.0" layoutY="174.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
           <font>
@@ -100,8 +100,9 @@
             <Button layoutX="398.0" layoutY="7.0" mnemonicParsing="false" onAction="#switchToEffortLoggerConsole" text="Proceed to Effort Log Console" />
             <TreeTableView layoutX="6.0" layoutY="38.0" prefHeight="199.0" prefWidth="140.0">
               <columns>
-                <TreeTableColumn prefWidth="75.0" text="Number" />
-                <TreeTableColumn prefWidth="75.0" text="Date" />
+                <TreeTableColumn prefWidth="54.399961948394775" text="Number" />
+                <TreeTableColumn minWidth="7.20001220703125" prefWidth="40.400054931640625" text="Date" />
+                  <TreeTableColumn prefWidth="45.19995880126953" text="Role" />
               </columns>
             </TreeTableView>
             <TreeTableView layoutX="146.0" layoutY="38.0" prefHeight="200.0" prefWidth="98.0">
@@ -126,8 +127,9 @@
             <Text layoutX="444.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Entries" />
             <TreeTableView layoutX="6.0" layoutY="264.0" prefHeight="200.0" prefWidth="147.0">
               <columns>
-                <TreeTableColumn prefWidth="75.0" text="Number" />
-                <TreeTableColumn prefWidth="75.0" text="Name" />
+                <TreeTableColumn prefWidth="51.60000467300415" text="Number" />
+                <TreeTableColumn prefWidth="40.399993896484375" text="Name" />
+                  <TreeTableColumn prefWidth="43.99994659423828" text="Role" />
               </columns>
             </TreeTableView>
             <TextField layoutX="559.0" layoutY="242.0" prefHeight="26.0" prefWidth="63.0" />
