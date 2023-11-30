@@ -4,6 +4,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,11 +75,29 @@ public class EffortLoggerConsoleController implements Initializable{
 		stage.setScene(scene);;
 		stage.show();
 	}
-	public void switchToProjectData(ActionEvent event) throws IOException{
-		root = FXMLLoader.load(getClass().getResource("ProjectDescription.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);;
-		stage.show();
+	public void switchToDetailedDefectData(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("DetailedDefectData.fxml")); //loads EffortLogger Console UI
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow(); //cast source to Node and cast Node to stage
+		scene = new Scene(root); //set scene as Defect Console UI
+		stage.setScene(scene); //set new window to Defect Console UI
+		stage.show(); //show Defect Console UI
+	}
+	
+	StopWatch stopWatch = new StopWatch(); //create new stopwatch object
+	
+	@FXML
+	private Label clockLabel; //label that shows status of clock
+	
+	public void startStopwatch(ActionEvent event) { //when "Start an Activity" button is clicked this runs
+        stopWatch.start(); //starts stopwatch
+        clockLabel.setText("Clock is running"); //sets text to show clock is running
+        clockLabel.setTextFill(Color.GREEN); //changes color of text to green
+	}
+	
+	public void stopStopwatch(ActionEvent event) { //when "Stop this Activity" button is clicked this runs
+		stopWatch.stop(); //stops stopwatch
+		clockLabel.setText("Clock is stopped"); //sets text to show clock is stopped
+		clockLabel.setTextFill(Color.RED); //changes color of text to red
+		System.out.println(stopWatch.toString()); //prints elapsed time in seconds to console
 	}
 }
